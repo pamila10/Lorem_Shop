@@ -1,0 +1,628 @@
+@import "libs/normalize";
+@import "libs/include-media";
+@import "libs/owlcarousel/owl.carousel.min.scss";
+@import "libs/owlcarousel/owl.theme.default.min.scss";
+@import "reset";
+@import "vars";
+@import "fonts";
+@import "global";
+
+.topBlock {
+  position: relative;
+  padding-top: 164px;
+  @include media("<desktop") {
+    padding-top: 85px;
+  }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 63px 0;
+  transition: all 0.5s ease;
+  z-index: 100;
+  @include media("<desktop") {
+    padding: 20px 0;
+  }
+  @include media("<tablet") {
+    .header__nav.active {
+      span {
+        width: 0;
+        &::after,
+        &::before {
+          transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+          background-color: white;
+        }
+        &::after {
+          bottom: 0;
+          transform: rotate(45deg);
+        }
+        &::before {
+          top: 0;
+          transform: rotate(-45deg);
+        }
+      }
+      .header__navList {
+        display: flex;
+        flex-direction: column;
+        padding: 60px 10px 10px 20px;
+      }
+      svg path {
+        stroke: white;
+      }
+    }
+  }
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__navBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  &__logoBlock {
+    margin-right: 40px;
+    padding: 5px 0;
+    @include media("<tablet") {
+      padding-left: 30px;
+    }
+    @include media("<xs-phone") {
+      margin-right: 0;
+    }
+  }
+  &__navList {
+    @include media("<tablet") {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      overflow: auto;
+      height: 100vh;
+      width: 100%;
+      padding-top: 45px;
+      background-color: rgba(7, 7, 7, 0.9);
+      z-index: 1000;
+    }
+  }
+  &__navItem {
+    display: inline-block;
+    padding-right: 44px;
+    font-size: 16px;
+    @include media("<tablet") {
+      padding-bottom: 15px;
+      color: white;
+    }
+  }
+  &__authBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__authBlock > div {
+    padding-left: 34.5px;
+  }
+  &__loginBtn {
+    background-color: transparent;
+    border: transparent;
+  }
+  &__loginImg {
+    width: 40px;
+    height: 100%;
+  }
+}
+
+.hamburgerBtn {
+  display: none;
+  width: 22px;
+  height: 22px;
+  background-color: transparent;
+  border: none;
+  position: fixed;
+  left: 10px;
+  top: 28px;
+  z-index: 1001;
+  overflow: hidden;
+  outline: none;
+  transition: 0.4s;
+  @include media("<tablet") {
+    display: block;
+  }
+  span {
+    display: block;
+    position: absolute;
+    background-color: black;
+    height: 2px;
+    width: 18px;
+    top: 15px;
+    &::after,
+    &::before {
+      display: block;
+      position: absolute;
+      background-color: black;
+      height: 2px;
+      width: 18px;
+      content: "";
+    }
+    &::after {
+      bottom: 5px;
+    }
+    &::before {
+      top: 5px;
+    }
+  }
+}
+
+.hamburgerBtnLine {
+  span {
+    &::after {
+      transition: transform 0.2s ease-in, bottom 0.2s linear 0.2s;
+    }
+    &::before {
+      transition: transform 0.2s ease-in, top 0.2s linear 0.2s;
+    }
+  }
+}
+
+.headerColored {
+  background-color: lightgray;
+}
+
+.banner {
+  padding-bottom: 85px;
+  @include media("<md-phone") {
+    padding-bottom: 20px;
+  }
+}
+
+.hero {
+  max-width: 494px;
+  padding: 60px;
+  background-color: rgba(255, 255, 255, 0.72);
+  @include media("<md-phone") {
+    max-width: none;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+  .h1 {
+    padding-bottom: 16px;
+  }
+  &__text {
+    color: #898989;
+    font-size: 20px;
+    padding-bottom: 48px;
+    line-height: 150%;
+    @include media("<md-phone") {
+      padding-bottom: 20px;
+    }
+  }
+  &__btn_link {
+    padding: 24px 140px;
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+    background-color: var(--primary-color);
+    @include media("<md-phone") {
+      padding: 14px 30px;
+      width: 200px;
+    }
+  }
+}
+
+.feature {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 82px 0 104px 25px;
+  @include media("<tablet") {
+    flex-wrap: wrap;
+    padding: 25px 0 25px 25px;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    @include media("<tablet") {
+      padding-bottom: 10px;
+      width: 50%;
+    }
+    @include media("<sm-phone") {
+      width: 100%;
+    }
+  }
+  &__imgBlock {
+    padding-right: 25px;
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  &__textBlock {
+    padding-right: 10px;
+  }
+}
+
+.products {
+  &__itemsBlock {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 32px;
+    column-gap: 32px;
+    padding: 32px 0;
+    @include media("<desktop") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include media("<tablet") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include media("<sm-phone") {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  &__item {
+    width: 285px;
+    position: relative;
+    justify-self: center;
+    background: #f4f5f7;
+    @include media("<macbook") {
+      width: 100%;
+      max-width: 220px;
+    }
+    &:hover {
+      .products__actions {
+        display: flex;
+      }
+    }
+    img {
+      width: 285px;
+      height: 301px;
+      background-size: cover;
+      @include media("<macbook") {
+        width: 100%;
+        max-width: 220px;
+        height: 240px;
+      }
+    }
+  }
+  &__textBlock {
+    padding: 16px 16px 33px;
+  }
+  &__name {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 120%;
+    padding-bottom: 8px;
+    @include media("<macbook") {
+      font-size: 20px;
+    }
+  }
+  &__descr {
+    font-size: 16px;
+    padding-bottom: 8px;
+    line-height: 150%;
+    color: var(--light-text-color);
+  }
+  &__price {
+    display: flex;
+    align-items: center;
+    &_new {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 150%;
+      padding-right: 16px;
+    }
+    &_old {
+      font-size: 16px;
+      line-height: 150%;
+      text-decoration-line: line-through;
+      color: #b0b0b0;
+    }
+  }
+  &__actions {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(58, 58, 58, 0.72);
+  }
+  &__btnWrap {
+    display: flex;
+    align-items: center;
+  }
+  &__addBtn {
+    background: white;
+    border: white;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 16px;
+    padding: 12px 59px;
+    margin-bottom: 24px;
+  }
+  &__shareBtn,
+  &__likeBtn {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    color: white;
+    border: transparent;
+    svg {
+      margin-right: 11px;
+    }
+  }
+  &__shareBtn {
+    padding: 0 50px 0 10px;
+  }
+  &__showMoreBtnBlock {
+    display: flex;
+    justify-content: center;
+  }
+  &__showMoreBtn {
+    padding: 12px 82px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--primary-color);
+    background: transparent;
+    border: 1px solid var(--primary-color);
+  }
+}
+
+.articles {
+  position: relative;
+  padding: 84px 0 64px;
+  @include media("<tablet") {
+    padding: 20px 0 20px;
+  }
+  &__item {
+    width: 390px;
+    @include media("<macbook") {
+      width: 100%;
+    }
+  }
+  &__textBlock {
+    padding: 16px;
+    @include media("<desktop") {
+      padding: 16px 0;
+    }
+  }
+  &__title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 120%;
+    padding-bottom: 8px;
+    @include media("<tablet") {
+      font-size: 20px;
+    }
+  }
+  &__time {
+    font-size: 14px;
+    line-height: 150%;
+    color: var(--light-text-color);
+  }
+  .owl-carousel {
+    padding-top: 36px;
+  }
+  .owl-prev,
+  .owl-next {
+    position: absolute;
+    top: calc(50% - 48px);
+    width: 48px;
+    height: 48px;
+    border-radius: 50% !important;
+    background: white !important;
+    box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.16);
+    span {
+      color: var(--primary-color);
+      font-size: 22px;
+    }
+  }
+  .owl-prev {
+    left: 0;
+  }
+  .owl-next {
+    right: 0;
+  }
+  .owl-dot {
+    span {
+      width: 11px !important;
+      height: 11px !important;
+    }
+  }
+  .owl-dot.active,
+  .owl-dot:hover {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    border: 1px solid rgba(155, 141, 133, 0.7);
+    span {
+      background: var(--primary-color) !important;
+    }
+  }
+}
+
+.gallery {
+  a {
+    width: 100%;
+    height: 100%;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  &__title {
+    padding-bottom: 8px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 150%;
+    text-align: center;
+    color: #616161;
+  }
+  &__imgBlock {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    row-gap: 12px;
+    column-gap: 12px;
+    padding: 43px 0 44px;
+    @include media("<xs-phone") {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0 20px;
+    }
+  }
+  &__imgItem {
+    @include media("<xs-phone") {
+      width: 200px;
+      height: auto;
+    }
+  }
+  &__imgItem1 {
+    grid-column: 1 / 5;
+    grid-row: 1 / 4;
+  }
+  &__imgItem2 {
+    grid-column: 5 / 12;
+    grid-row: 1 / 4;
+  }
+  &__imgItem3 {
+    grid-column: 12 / 19;
+    grid-row: 1 / 5;
+  }
+  &__imgItem4 {
+    grid-column: 19 / -1;
+    grid-row: 1 / 5;
+  }
+  &__imgItem5 {
+    grid-column: 1 / 7;
+    grid-row: 4 / -1;
+  }
+  &__imgItem6 {
+    grid-column: 7 / 12;
+    grid-row: 4 / -1;
+  }
+  &__imgItem7 {
+    grid-column: 12 / 19;
+    grid-row: 5 / -1;
+  }
+  &__imgItem8 {
+    grid-column: 19 / -1;
+    grid-row: 5 / -1;
+  }
+  &__hr {
+    margin: 0;
+  }
+}
+
+.footer {
+  padding-top: 80px;
+  @include media("<tablet") {
+    padding-top: 20px;
+  }
+  &__wrap {
+    display: flex;
+    padding-bottom: 34px;
+    @include media("<desktop") {
+      flex-flow: wrap;
+    }
+  }
+  &__logo {
+    padding-bottom: 16px;
+  }
+  &__addressBlock {
+    padding-right: 80px;
+    width: 30%;
+    @include media("<macbook") {
+      padding-right: 50px;
+      width: auto;
+      min-width: 300px;
+      flex: 1 0 0;
+    }
+    @include media("<md-desktop") {
+      padding-right: 30px;
+    }
+    @include media("<xs-phone") {
+      padding-right: 0;
+    }
+  }
+  &__address {
+    padding-right: 10px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 150%;
+    p,
+    a {
+      display: block;
+      padding-bottom: 16px;
+    }
+  }
+  &__nav {
+    display: flex;
+    width: 50%;
+    @include media("<macbook") {
+      width: auto;
+      min-width: 375px;
+      flex: 2 0 0;
+    }
+    @include media("<xs-phone") {
+      flex-direction: column;
+      min-width: auto;
+    }
+    li {
+      padding-bottom: 16px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 150%;
+      color: #616161;
+    }
+  }
+  &__nav > div {
+    padding-right: 70px;
+    @include media("<macbook") {
+      padding-right: 50px;
+    }
+    @include media("<md-desktop") {
+      padding-right: 30px;
+    }
+  }
+  .h3 {
+    padding-bottom: 16px;
+  }
+  &__emailBlock {
+    width: 25%;
+    @include media("<macbook") {
+      width: auto;
+      flex: 1 0 0;
+    }
+  }
+  &__emailForm {
+    display: flex;
+  }
+  &__emailInput {
+    width: 242px;
+    height: 45px;
+    padding: 12px;
+    margin-right: 4px;
+    background-color: #f4f5f7;
+    border: 1px solid transparent;
+    font-weight: normal;
+    color: #828282;
+  }
+  &__emailBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46px;
+    height: 45px;
+    background-color: var(--primary-color);
+    border: 1px solid transparent;
+  }
+}

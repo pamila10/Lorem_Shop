@@ -1,0 +1,122 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--main-text-color);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+.footer {
+  flex: 0 0 auto;
+}
+
+.container {
+  max-width: 1440;
+  margin: 0 auto;
+  padding: 0 100px;
+  @include media("<md-desktop") {
+    padding: 0 15px;
+  }
+}
+
+//bg-strech
+.bg-strech-section {
+  position: relative;
+}
+
+.bg-strech {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+a {
+  display: inline-block;
+  cursor: pointer;
+  color: inherit;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+button {
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.h1 {
+  font-weight: bold;
+  font-size: 56px;
+  line-height: 120%;
+  @include media("<tablet") {
+    font-size: 44px;
+  }
+  @include media("<md-phone") {
+    font-size: 32px;
+  }
+}
+
+.h2 {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 120%;
+  text-align: center;
+  @include media("<tablet") {
+    font-size: 30px;
+  }
+  @include media("<md-phone") {
+    font-size: 26px;
+  }
+}
+
+.h3 {
+  font-weight: bold;
+  font-size: 24px;
+  color: #000000;
+  @include media("<macbook") {
+    font-size: 20px;
+  }
+}
+
+.h4 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 150%;
+}
+
+.logo {
+  color: black;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.hideScroll {
+  overflow: hidden;
+}

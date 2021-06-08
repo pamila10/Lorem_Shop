@@ -1,0 +1,19 @@
+:root {
+  --main-text-color: #3a3a3a;
+  --light-text-color: #898989;
+  --primary-color: #e89f71;
+}
+
+$breakpoints: (
+  "full": 1920px,
+  "xl": 1680px,
+  "macbook": 1440px,
+  "ipad-pro": 1366px,
+  "md-desktop": 1200px,
+  "desktop": 1024px,
+  "tablet": 768px,
+  "phone": 667px,
+  "md-phone": 568px,
+  "sm-phone": 480px,
+  "xs-phone": 375px,
+);
